@@ -189,3 +189,49 @@ La convocatoria mínima solo puede cerrarse si se cumple el número mínimo de i
 Si no se alcanza ese mínimo, permanecerá abierta hasta que el propietario decida cancelarla, en cuyo caso los créditos de los usuarios inscritos son devueltos.
 
 El comportamiento de admisión en el cierre es idéntico al de la convocatoria ordinaria: todas las inscripciones válidas se admiten.
+
+```mermaid
+stateDiagram-v2
+    Cancelada --> [*]
+    Cerrada --> [*]
+    Cancelada --> Cancelada : inscribir()/cerrar()/cancelar()<br>retorna false
+    
+
+    [*] --> Abierta : new Convocatoria(curso)
+    
+    Abierta --> Abierta : inscribir(usuario)<br>[condición NO se cumple]<br>retorna false
+    Abierta --> Abierta : cerrar()<br>[sin inscripciones admitidas]<br>retorna false
+
+    Abierta --> Cerrada : cerrar()<br>[existen inscripciones admitidas]<br>retorna true<br>/transferirDinero()
+    Abierta --> Cancelada : cancelar()<br>retorna true<br>/restituir créditos
+
+    Cerrada --> Cerrada : inscribir()/cerrar()/cancelar()<br>retorna false
+    
+
+    
+    
+
+    %% Notas explicativas
+    note right of Abierta
+      Estado inicial tras crear la convocatoria.<br>
+      esAbierta = true, esCancelada = false.<br>
+      Permite inscripciones válidas.<br>
+      cerrar() sólo cambia de estado si hay inscripciones admitidas.
+    end note
+
+    note right of Cerrada
+      Estado final exitoso.<br>
+      esAbierta = false, esCancelada = false.<br>
+      Se transfieren créditos al propietario.<br>
+      No se aceptan nuevas inscripciones.
+    end note
+
+    note right of Cancelada
+      Estado final no exitoso.<br>
+      esAbierta = false, esCancelada = true.<br>
+      Se devuelven los créditos a los usuarios inscritos.<br>
+      No se aceptan nuevas inscripciones.
+    end note
+
+
+```
