@@ -1,3 +1,5 @@
+[VOLVER AL README](../README.md)
+
 # Especificación de métodos — Clase `Convocatoria`
 
 ## Descripción general
