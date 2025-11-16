@@ -14,9 +14,6 @@ Una inscripción se caracteriza por el usuario que la realiza y por el número d
 ```mermaid
 classDiagram
 
-    %% ==== Estilos ====
-    classDef rojo fill:#ffcccc,stroke:#ff0000,stroke-width:2px;
-
     %% ==== Clases principales ====
 
     class Usuario {
@@ -47,7 +44,7 @@ classDiagram
         + abrirConvocatoria(): Convocatoria
     }
 
-    class Convocatoria {
+    class Convocatoria:::convocatoria {
         - Curso curso
         - Usuario propietario
         - List~Inscripcion~ inscripciones
@@ -67,7 +64,7 @@ classDiagram
         # transferirDinero(): void
     }
 
-    class ConvocatoriaLimitada {
+    class ConvocatoriaLimitada:::convocatoria {
         - int maxAdmitidos
         - int totalInscripciones
         + ConvocatoriaLimitada(curso: Curso, propietario: Usuario, maxAdmitidos: int)
@@ -78,7 +75,7 @@ classDiagram
         + admitirInscripciones(): void
     }
 
-    class ConvocatoriaMinima {
+    class ConvocatoriaMinima:::convocatoria {
         - int minimoInscripciones
         - int minimoCursosCompletados
         + ConvocatoriaMinima(curso: Curso, propietario: Usuario, minIns: int, minCursos: int)
@@ -120,114 +117,9 @@ classDiagram
     ConvocatoriaFactory ..> Convocatoria
 
     %% ==== Aplicar estilos rojos a tres clases ====
-    class Convocatoria rojo
-    class ConvocatoriaLimitada rojo
-    class ConvocatoriaMinima rojo
+    classDef convocatoria fill:#ffcccc, stroke:#ff0000, stroke-width:2px;
 
 ```
-
-  ```mermaid
-  classDiagram
-      %% ==== Clases principales ====
-  
-      class Usuario {
-          - String nombre
-          - double credito
-          - List~Curso~ cursosCreados
-          - List~Inscripcion~ inscripciones
-          + crearCurso(nombre: String, tematica: String, precio: double): Curso
-          + agregarCredito(cantidad: double): void
-          + retirarCredito(cantidad: double): void
-          + getCursosCompletadosPorTematica(tematica: String): int
-          + getCredito(): double
-      }
-  
-      class Curso {
-          - String nombre
-          - String tematica
-          - double precio
-          - Usuario autor
-          - double valoracionMedia
-          + abrirConvocatoria(): Convocatoria
-          + abrirConvocatoria(maxAdmitidos: int): ConvocatoriaLimitada
-          + abrirConvocatoria(minimoInscripciones: int, minimoCursosCompletados: int): ConvocatoriaMinima
-          + getTematica(): String
-          + getPrecio(): double
-          + getAutor(): Usuario
-      }
-  
-      class Convocatoria {
-        - Curso curso
-        - Usuario propietario
-        - List~Inscripcion~ inscripciones
-        - boolean esAbierta
-        - boolean esCancelada
-        + Convocatoria(curso: Curso)
-        + getCurso(): Curso
-        + getPropietario(): Usuario
-        + getInscripciones(): List~Inscripcion~
-        + getEsAbierta(): boolean
-        + getEsCancelada(): boolean
-        + getInscripcionPorNombre(nombreUsuario: String): Inscripcion
-        + inscribir(usuario: Usuario): boolean
-        + getAdmitidas(): List~Inscripcion~
-        + cerrar(): boolean
-        + cancelar(): boolean
-        # admitirInscripciones(): void
-        # transferirDinero(): void
-    }
-  
-      class ConvocatoriaLimitada {
-          - int maxAdmitidos
-          + getMaxAdmitidos(): int
-          + setMaxAdmitidos(): void
-          + cerrar(): boolean
-          + admitirInscripciones(): void
-      }
-  
-      class ConvocatoriaMinima {
-          - int minimoInscripciones
-          - int minimoCursosCompletados
-          + getMinimoInscripciones(): int
-          + getMinimoCursosCompletados(): int
-          + setMinimoInscripciones(): void
-          + setMinimoCursosCompletados(): void
-          + cerrar(): boolean
-          + cancelar(): void
-          + inscribir(usuario: Usuario): boolean
-          + admitirInscripciones(): void
-      }
-  
-      class ConvocatoriaFactory {
-          + crearConvocatoria(curso: Curso, propietario: Usuario): Convocatoria
-          + crearConvocatoria(curso: Curso, propietario: Usuario, maxAdmitidos: int): ConvocatoriaLimitada
-          + crearConvocatoria(curso: Curso, propietario: Usuario, minimoInscripciones: int, minimoCursosCompletados: int): ConvocatoriaMinima
-      }
-  
-      class Inscripcion {
-          - Usuario usuario
-          - int cursosCompletadosTematica
-          - boolean admitido
-          + marcarComoAdmitido(): void
-          + isAdmitido(): boolean
-          + getUsuario(): Usuario
-          + getCursosCompletadosTematica(): int
-      }
-  
-      %% ==== Relaciones entre clases ====
-  
-      Usuario "1" -- "0..*" Curso
-      Usuario "1" -- "0..*" Inscripcion
-      Curso "1" -- "0..*" Convocatoria
-      Convocatoria "1" -- "0..*" Inscripcion
-      Convocatoria <|-- ConvocatoriaLimitada
-      Convocatoria <|-- ConvocatoriaMinima
-      Curso ..> ConvocatoriaFactory : delega creación
-      ConvocatoriaFactory ..> Convocatoria : crea
-  
-  
-  
-  ```
 
 Para poder inscribirse en una convocatoria ordinaria, deben cumplirse las siguientes condiciones:
 
@@ -236,12 +128,8 @@ Para poder inscribirse en una convocatoria ordinaria, deben cumplirse las siguie
   3. El usuario debe disponer de crédito suficiente para pagar el precio del curso.
   4. El usuario no debe estar ya inscrito previamente en la misma convocatoria.
 
-Cuando se cumplen todas las condiciones, se registra la inscripción y se descuenta el precio del curso del crédito del usuario.
-En cualquier momento, el propietario puede cerrar la convocatoria, con lo que esta pasa a estar en estado “cerrada”.
-Cerrar una convocatoria implica admitir las inscripciones registradas y transferir el crédito correspondiente (precio del curso × número de alumnos admitidos) al propietario.
-Si no existen inscripciones admitidas, la convocatoria no puede cerrarse.
-Asimismo, el propietario puede cancelar la convocatoria, lo que hace que pase a estado “cancelada”.
-Cancelar una convocatoria significa devolver el crédito previamente descontado a todos los usuarios inscritos y finalizar el proceso sin admisiones.
+Cuando se cumplen todas las condiciones, se registra la inscripción y se descuenta el precio del curso del crédito del usuario. En cualquier momento, el propietario puede cerrar la convocatoria, con lo que esta pasa a estar en estado “cerrada”. Cerrar una convocatoria ordinaria implica admitir las inscripciones registradas y transferir el crédito correspondiente (precio del curso × número de alumnos admitidos) al propietario.
+Si no existen inscripciones, la convocatoria no podrá cerrarse. Asimismo, el propietario puede cancelar la convocatoria, lo que hace que pase a estado “cancelada”. Cancelar una convocatoria significa devolver el crédito previamente descontado a todos los usuarios inscritos y finalizar el proceso sin admisiones.
 
   ```mermaid
   stateDiagram
@@ -283,6 +171,8 @@ El sistema contempla tres tipos de convocatorias, todas ellas heredadas de la cl
 Es el tipo de convocatoria por defecto.
 Todas las inscripciones registradas se consideran admitidas cuando se cierra, siempre que haya al menos una.
 El cierre puede ejecutarse en cualquier momento y transfiere el crédito total al propietario del curso.
+
+[Ver Especificación de la clase convocatoria](../docs/especificacionConvocatoria.md)
 
 ### 2. Convocatoria limitada
 
