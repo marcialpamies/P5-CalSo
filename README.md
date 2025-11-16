@@ -172,7 +172,7 @@ Es el tipo de convocatoria por defecto.
 Todas las inscripciones registradas se consideran admitidas cuando se cierra, siempre que haya al menos una.
 El cierre puede ejecutarse en cualquier momento y transfiere el crédito total al propietario del curso.
 
-[Ver Especificación de la clase convocatoria](./docs/especificacionConvocatoria.md)
+[Ver Especificación de la clase Convocatoria](./docs/especificacionConvocatoria.md)
 
 ### 2. Convocatoria limitada
 
@@ -181,6 +181,8 @@ Este número máximo se fija en el constructor.
 
 En el momento del cierre, se seleccionan como admitidos los usuarios con mayor número de cursos completados en la temática del curso, en orden descendente, hasta agotar el número de plazas disponibles.
 Si no se alcanza al menos una inscripción admitida, la convocatoria no puede cerrarse.
+
+[Ver Especificación de la clase ConvocatoriaLimitada](./doc/especificacion_Métodos_ConvocatoriaLimitada.md)
 
 ### 3. Convocatoria mínima
 
