@@ -4,13 +4,127 @@
 
 El proyecto simula el comportamiento de un sistema de gestión de convocatorias de cursos de la plataforma educativa formandera.com, que se representa esquemáticamente en el diagrama siguiente.
 
-En este sistema, un usuario registrado (caracterizado por su nombre y el crédito disponible) puede crear un curso y posteriormente abrir una convocatoria para ofrecer una nueva edición de dicho curso.
-Este usuario es el propietario de la convocatoria, ya que actúa como autor y responsable del curso.
+En este sistema, un usuario registrado (caracterizado por su nombre y el crédito disponible) puede crear un curso y posteriormente abrir una convocatoria para ofrecer una nueva edición de dicho curso al resto de usuarios.
+El único usuario que puede crear una convocatoria es el autor de curso y se convertirá en el propietario de la convocatoria.
 
-En el momento en que el propietario abre una convocatoria, esta pasa a estar en estado “abierta” (ver Diagrama de estados), estado en el que los demás usuarios pueden inscribirse para participar en la próxima edición del curso.
+En el momento en que el propietario abre una convocatoria, esta pasa a estar en estado “abierta” (ver Diagrama de estados), estado en el que los demás usuarios pueden inscribirse para participar en la edición del curso.
 
 Una inscripción se caracteriza por el usuario que la realiza y por el número de cursos completados por el usuario en la misma temática que el curso ofertado.
 
+```mermaid
+classDiagram
+
+    %% ==== Estilos ====
+    classDef rojo fill:#ffcccc,stroke:#ff0000,stroke-width:2px;
+
+    %% ==== Clases principales ====
+
+    class Usuario {
+        - String nombre
+        - double credito
+        - List~Curso~ cursosCreados
+        - List~Inscripcion~ inscripciones
+        + Usuario(nombre: String)
+        + getNombre(): String
+        + getCredito(): double
+        + agregarCredito(cantidad: double): void
+        + retirarCredito(cantidad: double): void
+        + crearCurso(nombre: String, tematica: String, precio: double): Curso
+        + registrarInscripcion(inscripcion: Inscripcion): void
+        + getCursosCompletadosPorTematica(tematica: String): int
+    }
+
+    class Curso {
+        - String nombre
+        - String tematica
+        - double precio
+        - Usuario autor
+        + Curso(nombre: String, tematica: String, precio: double, autor: Usuario)
+        + getNombre(): String
+        + getTematica(): String
+        + getPrecio(): double
+        + getAutor(): Usuario
+        + abrirConvocatoria(): Convocatoria
+    }
+
+    class Convocatoria {
+        - Curso curso
+        - Usuario propietario
+        - List~Inscripcion~ inscripciones
+        - boolean esAbierta
+        - boolean esCancelada
+        + Convocatoria(curso: Curso, propietario: Usuario)
+        + getCurso(): Curso
+        + getPropietario(): Usuario
+        + getInscripciones(): List~Inscripcion~
+        + getEsAbierta(): boolean
+        + getEsCancelada(): boolean
+        + getInscripcionPorNombre(nombreUsuario: String): Inscripcion
+        + inscribir(usuario: Usuario): boolean
+        + cerrar(): boolean
+        + cancelar(): boolean
+        # admitirInscripciones(): void
+        # transferirDinero(): void
+    }
+
+    class ConvocatoriaLimitada {
+        - int maxAdmitidos
+        - int totalInscripciones
+        + ConvocatoriaLimitada(curso: Curso, propietario: Usuario, maxAdmitidos: int)
+        + getMaxAdmitidos(): int
+        + setMaxAdmitidos(max: int): void
+        + getTotalInscripciones(): int
+        + cerrar(): boolean
+        + admitirInscripciones(): void
+    }
+
+    class ConvocatoriaMinima {
+        - int minimoInscripciones
+        - int minimoCursosCompletados
+        + ConvocatoriaMinima(curso: Curso, propietario: Usuario, minIns: int, minCursos: int)
+        + getMinimoInscripciones(): int
+        + getMinimoCursosCompletados(): int
+        + setMinimoInscripciones(v: int): void
+        + setMinimoCursosCompletados(v: int): void
+        + cerrar(): boolean
+        + cancelar(): boolean
+        + inscribir(usuario: Usuario): boolean
+        + admitirInscripciones(): void
+    }
+
+    class Inscripcion {
+        - Usuario usuario
+        - int cursosCompletadosTematica
+        - boolean admitido
+        + Inscripcion(usuario: Usuario, cursosCompletados: int)
+        + marcarComoAdmitido(): void
+        + isAdmitido(): boolean
+        + getUsuario(): Usuario
+        + getCursosCompletadosTematica(): int
+    }
+
+    class ConvocatoriaFactory {
+        + crearConvocatoria(curso: Curso, propietario: Usuario): Convocatoria
+        + crearConvocatoriaLimitada(curso: Curso, propietario: Usuario, maxAdmitidos: int): ConvocatoriaLimitada
+        + crearConvocatoriaMinima(curso: Curso, propietario: Usuario, minIns: int, minCursos: int): ConvocatoriaMinima
+    }
+
+    %% ==== Relaciones entre clases ====
+    Usuario "1" -- "0..*" Curso : crea
+    Usuario "1" -- "0..*" Inscripcion : realiza
+    Curso "1" -- "0..*" Convocatoria : genera
+    Convocatoria "1" -- "0..*" Inscripcion
+    Convocatoria <|-- ConvocatoriaLimitada
+    Convocatoria <|-- ConvocatoriaMinima
+    Curso ..> ConvocatoriaFactory : delega creación
+    ConvocatoriaFactory ..> Convocatoria
+
+    %% ==== Aplicar estilos rojos a tres clases ====
+    class Convocatoria rojo
+    class ConvocatoriaLimitada rojo
+    class ConvocatoriaMinima rojo
+
+```
 
   ```mermaid
   classDiagram
