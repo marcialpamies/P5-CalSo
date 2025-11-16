@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.formandera</groupId>
+  <artifactId>formandera-convocatorias</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Formandera Convocatorias</name>
+  <description>Segmento de aplicación para gestión de convocatorias de cursos (Pruebas POO - Calidad de Software)</description>
+
+	<!-- ==== Propiedades del proyecto ==== -->
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- Última versión estable de JUnit 5 -->
+        <junit.jupiter.version>5.10.0</junit.jupiter.version>
+    </properties>
+	
+<!-- ==== Dependencias ==== -->
+    <dependencies>
+
+        <!-- JUnit 5 (API + Engine para ejecución de tests) -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Assertions adicionales (opcional pero útil para formación) -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.26.0</version>
+            <scope>test</scope>
+        </dependency>
+
+		<!-- Clase para generar nombres y cadenas falsas para pruebas -->
+		<dependency>
+		    <groupId>com.github.javafaker</groupId>
+		    <artifactId>javafaker</artifactId>
+		    <version>1.0.2</version>
+		    <scope>test</scope>
+		</dependency>
+
+    </dependencies>
+
+    <!-- ==== Plugins ==== -->
+    <build>
+        <pluginManagement>
+            <plugins>
+
+                <!-- Plugin de compilación Java -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.11.0</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                    </configuration>
+                </plugin>
+
+                <!-- Plugin Surefire (ejecución de tests JUnit 5) -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.2.5</version>
+                    <configuration>
+                        <useModulePath>false</useModulePath>
+                        <includes>
+                            <include>**/*Test.java</include>
+                        </includes>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
