@@ -172,7 +172,7 @@ Es el tipo de convocatoria por defecto.
 Todas las inscripciones registradas se consideran admitidas cuando se cierra, siempre que haya al menos una.
 El cierre puede ejecutarse en cualquier momento y transfiere el crédito total al propietario del curso.
 
-[Ver Especificación de la clase convocatoria](../docs/especificacionConvocatoria.md)
+[Ver Especificación de la clase convocatoria](./docs/especificacionConvocatoria.md)
 
 ### 2. Convocatoria limitada
 
