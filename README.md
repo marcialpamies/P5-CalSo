@@ -215,27 +215,34 @@ El comportamiento de admisión en el cierre es idéntico al de la convocatoria o
 ---
 ## Ejercicios
 1. Descargar el proyecto de la práctica que se encuentra en la carpeta formandera-convocatorias.
-2. Elaborar un documento md que contenga una tabla con el diseño de los casos de prueba de métodos para la clase Convocatoria que aseguren la cobertura del código de cada método, atendiendo a su especificación, dicha tabla debe contener, como mínimo, los siguientes datos:
+2. Elaborar un documento md que contenga una tabla con el diseño de los casos de prueba de métodos para la clase Convocatoria. Los casos de prueba diseñados deben aseguren la cobertura del código de cada método, atendiendo a su especificación. Dicha tabla debe contener, como mínimo, los siguientes datos:
     a. Método sobre el que se realiza la prueba.
     b. Nombre significativo del test propuesto.
     c. Breve descripción del objetivo del test diseñado
-    d. Configuración y parámetros de entrada al test
-    e. Estado/valor esperado después de la ejecución
-Nota: Recordad que en los test OO es importante probar que tras la construcción el estado del objeto creado es correcto
-3. Implementar los casos de prueba de métodos para la clase Convocatoria en la clase ConvocatoriaTest diseñados en el paso anterior.
-4. Analizar el diagrama de estados de la clase Convocatoria y crea un nuevo documento md con una tabla que contenga el diseño de las pruebas de clase aleatorias de manera que aseguren que se ejercitan todos los posibles estados de los objetos. La tabla debe contener la siguiente información:
+    d. Configuración del estado y parámetros de entrada asociados al test
+    e. Estado/valor esperado que se comprobará en el caso de prueba (diseño de asserts)
+3. Implementar los casos de prueba de métodos para la clase Convocatoria en la clase ConvocatoriaTest, dentro de la carpeta y paquete adecuado, diseñados en el paso anterior.
+4. Analizar el diagrama de estados de la clase Convocatoria y crea un nuevo documento md con: la expresión regular que determina las secuencias aleatorias asociadas a la clase y una tabla que contenga el diseño de las pruebas de clase aleatorias de manera que aseguren que se ejercitan todos los posibles estados de los objetos. La tabla debe contener la siguiente información:
     a. Nombre significativo del test propuesto.
     b. Secuencia aleatoria que se pretende probar
     c. Configuración y parámetros de entrada al test
     d. Estado/valor esperado después de la ejecución
-
-5. Añadir la implementación de los casos de pruebas de clase aleatorias diseñados en el apartado anterior en la clase SubastaTest
-
-6. Implementar las clases de prueba ConvocatoriaMínimaTest y ConvocatoriaLimitadaTest como descendientes de ConvocatoriaTest. Antes de realizar la implamentación de casos de prueba, ejecuta todos los test de ConvocatoriaTest
-las clases hijas (las heredarán directamente) para ver qué nuevos casos debemos incorporar o modificar.
-7. Implementar los casos de prueba de cada una de las subclases (ConvocatoriaMínimaTest y ConvocatoriaLimitadaTest) siguiendo las recomendaciones vistas en clase.
-
+5. Añadir, idenitificando la sección con un comentario, la implementación de los casos de pruebas de clase aleatorias diseñados en el apartado anterior en la clase ConvocatoriaTest
+6. Elaborar un nuevo documento md donde se identifiquen los errores encontrados utilizando el conjunto de pruebas de los ejercicios 3 y 5. En este archivo se indicará el método o secuencia donde se produce el error, el test que lo identifica y las modificaciones realizadas sobre el código que corrijan el error descrito. Además, se añadirá la captura de pantala de la vista de jUnit donde se muestre el resultado final de la ejecución de todos os test. 
+7. Implementar las clases de prueba ConvocatoriaMínimaTest y ConvocatoriaLimitadaTest como descendientes de ConvocatoriaTest. Antes de realizar la implamentación de casos de prueba de cada una de ellas, ejecuta todos los test de ConvocatoriaTest en las clases hijas (las heredarán directamente) para ver qué nuevos casos debemos incorporar o modificar.
+8. Implementar los casos de prueba de cada una de las subclases (ConvocatoriaMínimaTest y ConvocatoriaLimitadaTest) siguiendo las recomendaciones vistas en clase.
+9. Elabora un nuevo documento md donde se identifiquen los test que se pueden reutiizar en cada una de las clases hijas, los que requieren modificación y los nuevos test que se han incorporado. Además, se estudiarán los errores encontrados en las calases hijas, indicando el test que determina el error y los cambios derivados. Además, se incoporará el estudio de la cobertura, de forma separada, de las clases hijas por loscasos de prueba diseñados en las clases ConvocatoriaLimitadaTest.java y ConvocatoriaMinimaTest.java.
 ---
+## Evaluación
+    - Se ofrece un archivo md con la tabla indicada en el ejercicio 2 y se enlaza en el README.md del repositorio - 0,25 puntos
+    - Diseño y completitud de los casos de prueba de métodos insertados en la tabla indicada en el ejerccio 2 - 1,5 punto
+    - Se preenta un nuevo archivo md con la expresión regular de las secuencias y el diseño de los casos de prueba de clase y se enlaza desde el README.md - 0,5 puntos
+    - Identificación, diseño y completitud de las pruebas de clase por el método de secuencias aleatorias que se solicita en el ejercicio 3 - 1.5 puntos
+    - Se preenta un nuevo archivo md con la identificación de los errores y modificaciones en el código que se indica en el ejercicio 6 y se enlaza desde el README.md - 0,25 puntos
+    - Implementación, ejecución e identificación de errores de los casos de prueba de métodos y de clase diseñados 1,5 puntos.
+    - Se preenta un nuevo archivo md con la información solicitada en el ejercicio 9 y se enlaza desde el README.md - 0,25 puntos.
+    - Diseño, implementación, completitud, errores detectados y análisis de cobertura de las pruebas de herencia recogidas en el documento md indicado en el ejercicio 9 - 3,75 puntos.
+    - Trabajo en ramas individuales de cada miembro del grupo - 0,5 puntos
 ## Entregables
-La entrega se realizará en la tarea del Aula Virtual asignada a la práctica con fecha de entrega 13/12/2024 23:55 horas y se debe entregar:
-- Enlace a repositorio de la práctica del grupo
+La entrega se realizará en la tarea del Aula Virtual asignada a la práctica con fecha de entrega 12/12/2025 23:55 horas y se debe entregar:
+- Todos los alumnos (todos los miembros de cada grupo) entregarán el enlace al repositorio de la práctica del grupo
