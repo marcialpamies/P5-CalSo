@@ -131,72 +131,7 @@ Para poder inscribirse en una convocatoria ordinaria, deben cumplirse las siguie
 Cuando se cumplen todas las condiciones, se registra la inscripción y se descuenta el precio del curso del crédito del usuario. En cualquier momento, el propietario puede cerrar la convocatoria, con lo que esta pasa a estar en estado “cerrada”. Cerrar una convocatoria ordinaria implica admitir las inscripciones registradas y transferir el crédito correspondiente (precio del curso × número de alumnos admitidos) al propietario.
 Si no existen inscripciones, la convocatoria no podrá cerrarse. Asimismo, el propietario puede cancelar la convocatoria, lo que hace que pase a estado “cancelada”. Cancelar una convocatoria significa devolver el crédito previamente descontado a todos los usuarios inscritos y finalizar el proceso sin admisiones.
 
-  ```mermaid
-  stateDiagram
-      [*] --> Abierta : creación inicial
-      Abierta --> Cancelada : cancelar()
-      Cancelada --> [*]
-      Cerrada --> [*]
-      Abierta --> Cerrada : cerrar()[resultado == true]
-      Abierta --> Abierta : cerrar()[resultado == false]<br> inscribir(Usuario usuario) <br> getInscripciones() <br> getCurso() <br> getPropietario() <br> getEsAbierta() <br> getEsCancelada()
-      Cerrada --> Cerrada : getAdmitidas() <br> getInscripciones() <br> getCurso() <br> getPropietario() <br> getEsAbierta() <br> getEsCancelada()
-      
-      note right of Abierta
-        Estado inicial tras crear la convocatoria.
-        - Se permiten inscripciones válidas.
-        - cerrar() intenta cerrar y devuelve true/false.
-        - cancelar() cambia el estado a Cancelada.
-      end note
-  
-      note right of Cerrada
-        Estado final exitoso:
-        - Las inscripciones admitidas son definitivas.
-        - Se transfieren los créditos al propietario.
-      end note
-  
-      note right of Cancelada
-        Estado final no exitoso:
-        - No se transfieren créditos.
-        - No se permiten nuevas inscripciones.
-      end note
-  
-  
-  ```
-## Tipos de convocatorias
-
-El sistema contempla tres tipos de convocatorias, todas ellas heredadas de la clase base Convocatoria:
-
-### 1. Convocatoria ordinaria
-
-Es el tipo de convocatoria por defecto.
-Todas las inscripciones registradas se consideran admitidas cuando se cierra, siempre que haya al menos una.
-El cierre puede ejecutarse en cualquier momento y transfiere el crédito total al propietario del curso.
-
-[Ver Especificación de la clase Convocatoria](./docs/especificacionConvocatoria.md)
-
-### 2. Convocatoria limitada
-
-Es una especialización de Convocatoria que restringe el número máximo de inscripciones admitidas.
-Este número máximo se fija en el constructor.
-
-En el momento del cierre, se seleccionan como admitidos los usuarios con mayor número de cursos completados en la temática del curso, en orden descendente, hasta agotar el número de plazas disponibles.
-Si no se alcanza al menos una inscripción admitida, la convocatoria no puede cerrarse.
-
-[Ver Especificación de la clase ConvocatoriaLimitada](./doc/especificacion_Métodos_ConvocatoriaLimitada.md)
-
-### 3. Convocatoria mínima
-
-Es un tipo de convocatoria que establece dos condiciones mínimas en el momento de su creación:
-
-  - Un número mínimo de inscripciones para poder cerrar la convocatoria.
-  - Un mínimo de cursos completados en la temática del curso que deben tener los usuarios para poder inscribirse.
-
-La convocatoria mínima solo puede cerrarse si se cumple el número mínimo de inscripciones.
-Si no se alcanza ese mínimo, permanecerá abierta hasta que el propietario decida cancelarla, en cuyo caso los créditos de los usuarios inscritos son devueltos.
-
-El comportamiento de admisión en el cierre es idéntico al de la convocatoria ordinaria: todas las inscripciones válidas se admiten.
-
-```mermaid
+ ```mermaid
 stateDiagram-v2
     Cancelada --> [*]
     Cerrada --> [*]
@@ -241,3 +176,40 @@ stateDiagram-v2
 
 
 ```
+## Tipos de convocatorias
+
+El sistema contempla tres tipos de convocatorias, todas ellas heredadas de la clase base Convocatoria:
+
+### 1. Convocatoria ordinaria
+
+Es el tipo de convocatoria por defecto.
+Todas las inscripciones registradas se consideran admitidas cuando se cierra, siempre que haya al menos una.
+El cierre puede ejecutarse en cualquier momento y transfiere el crédito total al propietario del curso.
+
+[Ver Especificación de métodos de la clase Convocatoria](./docs/especificacionConvocatoria.md)
+
+### 2. Convocatoria limitada
+
+Es una especialización de Convocatoria que restringe el número máximo de inscripciones admitidas.
+Este número máximo se fija en el constructor.
+
+En el momento del cierre, se seleccionan como admitidos los usuarios con mayor número de cursos completados en la temática del curso, en orden descendente, hasta agotar el número de plazas disponibles.
+Si no se alcanza al menos una inscripción admitida, la convocatoria no puede cerrarse.
+
+[Ver Especificación de métodos de la clase ConvocatoriaLimitada](./doc/especificacion_Métodos_ConvocatoriaLimitada.md)
+
+### 3. Convocatoria mínima
+
+Es un tipo de convocatoria que establece dos condiciones mínimas en el momento de su creación:
+
+  - Un número mínimo de inscripciones para poder cerrar la convocatoria.
+  - Un mínimo de cursos completados en la temática del curso que deben tener los usuarios para poder inscribirse.
+
+La convocatoria mínima solo puede cerrarse si se cumple el número mínimo de inscripciones.
+Si no se alcanza ese mínimo, permanecerá abierta hasta que el propietario decida cancelarla, en cuyo caso los créditos de los usuarios inscritos son devueltos.
+
+El comportamiento de admisión en el cierre es idéntico al de la convocatoria ordinaria: todas las inscripciones válidas se admiten.
+
+[Ver Especificación de métodos de la la Clase ConvocatoriaMinima](./dov/especificacion_Métodos_ConvocatoriaLimitada.md)
+
+
