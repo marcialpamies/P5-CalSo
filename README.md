@@ -212,4 +212,30 @@ El comportamiento de admisión en el cierre es idéntico al de la convocatoria o
 
 [Ver Especificación de métodos de la la Clase ConvocatoriaMinima](./dov/especificacion_Métodos_ConvocatoriaLimitada.md)
 
+---
+## Ejercicios
+1. Descargar el proyecto de la práctica que se encuentra en la carpeta formandera-convocatorias.
+2. Elaborar un documento md que contenga una tabla con el diseño de los casos de prueba de métodos para la clase Convocatoria que aseguren la cobertura del código de cada método, atendiendo a su especificación, dicha tabla debe contener, como mínimo, los siguientes datos:
+    a. Método sobre el que se realiza la prueba.
+    b. Nombre significativo del test propuesto.
+    c. Breve descripción del objetivo del test diseñado
+    d. Configuración y parámetros de entrada al test
+    e. Estado/valor esperado después de la ejecución
+Nota: Recordad que en los test OO es importante probar que tras la construcción el estado del objeto creado es correcto
+3. Implementar los casos de prueba de métodos para la clase Convocatoria en la clase ConvocatoriaTest diseñados en el paso anterior.
+4. Analizar el diagrama de estados de la clase Convocatoria y crea un nuevo documento md con una tabla que contenga el diseño de las pruebas de clase aleatorias de manera que aseguren que se ejercitan todos los posibles estados de los objetos. La tabla debe contener la siguiente información:
+    a. Nombre significativo del test propuesto.
+    b. Secuencia aleatoria que se pretende probar
+    c. Configuración y parámetros de entrada al test
+    d. Estado/valor esperado después de la ejecución
 
+5. Añadir la implementación de los casos de pruebas de clase aleatorias diseñados en el apartado anterior en la clase SubastaTest
+
+6. Implementar las clases de prueba ConvocatoriaMínimaTest y ConvocatoriaLimitadaTest como descendientes de ConvocatoriaTest. Antes de realizar la implamentación de casos de prueba, ejecuta todos los test de ConvocatoriaTest
+las clases hijas (las heredarán directamente) para ver qué nuevos casos debemos incorporar o modificar.
+7. Implementar los casos de prueba de cada una de las subclases (ConvocatoriaMínimaTest y ConvocatoriaLimitadaTest) siguiendo las recomendaciones vistas en clase.
+
+---
+## Entregables
+La entrega se realizará en la tarea del Aula Virtual asignada a la práctica con fecha de entrega 13/12/2024 23:55 horas y se debe entregar:
+- Enlace a repositorio de la práctica del grupo
