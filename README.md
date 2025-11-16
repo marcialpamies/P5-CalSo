@@ -234,15 +234,15 @@ El comportamiento de admisión en el cierre es idéntico al de la convocatoria o
 9. Elabora un nuevo documento md donde se identifiquen los test que se pueden reutiizar en cada una de las clases hijas, los que requieren modificación y los nuevos test que se han incorporado. Además, se estudiarán los errores encontrados en las calases hijas, indicando el test que determina el error y los cambios derivados. Además, se incoporará el estudio de la cobertura, de forma separada, de las clases hijas por loscasos de prueba diseñados en las clases ConvocatoriaLimitadaTest.java y ConvocatoriaMinimaTest.java.
 ---
 ## Evaluación
-    - Se ofrece un archivo md con la tabla indicada en el ejercicio 2 y se enlaza en el README.md del repositorio - 0,25 puntos
-    - Diseño y completitud de los casos de prueba de métodos insertados en la tabla indicada en el ejerccio 2 - 1,5 punto
-    - Se preenta un nuevo archivo md con la expresión regular de las secuencias y el diseño de los casos de prueba de clase y se enlaza desde el README.md - 0,5 puntos
-    - Identificación, diseño y completitud de las pruebas de clase por el método de secuencias aleatorias que se solicita en el ejercicio 3 - 1.5 puntos
-    - Se preenta un nuevo archivo md con la identificación de los errores y modificaciones en el código que se indica en el ejercicio 6 y se enlaza desde el README.md - 0,25 puntos
-    - Implementación, ejecución e identificación de errores de los casos de prueba de métodos y de clase diseñados 1,5 puntos.
-    - Se preenta un nuevo archivo md con la información solicitada en el ejercicio 9 y se enlaza desde el README.md - 0,25 puntos.
-    - Diseño, implementación, completitud, errores detectados y análisis de cobertura de las pruebas de herencia recogidas en el documento md indicado en el ejercicio 9 - 3,75 puntos.
-    - Trabajo en ramas individuales de cada miembro del grupo - 0,5 puntos
+- Se ofrece un archivo md con la tabla indicada en el ejercicio 2 y se enlaza en el README.md del repositorio - 0,25 puntos
+- Diseño y completitud de los casos de prueba de métodos insertados en la tabla indicada en el ejerccio 2 - 1,5 punto
+- Se preenta un nuevo archivo md con la expresión regular de las secuencias y el diseño de los casos de prueba de clase y se enlaza desde el README.md - 0,5 puntos
+- Identificación, diseño y completitud de las pruebas de clase por el método de secuencias aleatorias que se solicita en el ejercicio 3 - 1.5 puntos
+- Se preenta un nuevo archivo md con la identificación de los errores y modificaciones en el código que se indica en el ejercicio 6 y se enlaza desde el README.md - 0,25 puntos
+- Implementación, ejecución e identificación de errores de los casos de prueba de métodos y de clase diseñados 1,5 puntos.
+- Se preenta un nuevo archivo md con la información solicitada en el ejercicio 9 y se enlaza desde el README.md - 0,25 puntos.
+- Diseño, implementación, completitud, errores detectados y análisis de cobertura de las pruebas de herencia recogidas en el documento md indicado en el ejercicio 9 - 3,75 puntos.
+- Trabajo en ramas individuales de cada miembro del grupo - 0,5 puntos
 ## Entregables
 La entrega se realizará en la tarea del Aula Virtual asignada a la práctica con fecha de entrega 12/12/2025 23:55 horas y se debe entregar:
 - Todos los alumnos (todos los miembros de cada grupo) entregarán el enlace al repositorio de la práctica del grupo
