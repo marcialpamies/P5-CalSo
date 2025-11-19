@@ -210,7 +210,7 @@ Si no se alcanza ese mínimo, permanecerá abierta hasta que el propietario deci
 
 El comportamiento de admisión en el cierre es idéntico al de la convocatoria ordinaria: todas las inscripciones válidas se admiten.
 
-[Ver Especificación de métodos de la la Clase ConvocatoriaMinima](./doc/especificacion_Métodos_ConvocatoriaLimitada.md)
+[Ver Especificación de métodos de la la Clase ConvocatoriaMinima](./docs/especificacion_Metodos_ConvocatoriaMinima.md)
 
 ---
 ## Ejercicios
