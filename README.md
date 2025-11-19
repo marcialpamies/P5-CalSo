@@ -196,7 +196,7 @@ Este número máximo se fija en el constructor.
 En el momento del cierre, se seleccionan como admitidos los usuarios con mayor número de cursos completados en la temática del curso, en orden descendente, hasta agotar el número de plazas disponibles.
 Si no se alcanza al menos una inscripción admitida, la convocatoria no puede cerrarse.
 
-[Ver Especificación de métodos de la clase ConvocatoriaLimitada](./doc/especificacion_Métodos_ConvocatoriaLimitada.md)
+[Ver Especificación de métodos de la clase ConvocatoriaLimitada](./docs/especificacion_Métodos_ConvocatoriaLimitada.md)
 
 ### 3. Convocatoria mínima
 
@@ -210,7 +210,7 @@ Si no se alcanza ese mínimo, permanecerá abierta hasta que el propietario deci
 
 El comportamiento de admisión en el cierre es idéntico al de la convocatoria ordinaria: todas las inscripciones válidas se admiten.
 
-[Ver Especificación de métodos de la la Clase ConvocatoriaMinima](./dov/especificacion_Métodos_ConvocatoriaLimitada.md)
+[Ver Especificación de métodos de la la Clase ConvocatoriaMinima](./doc/especificacion_Métodos_ConvocatoriaLimitada.md)
 
 ---
 ## Ejercicios
