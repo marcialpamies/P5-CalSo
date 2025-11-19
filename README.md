@@ -216,22 +216,22 @@ El comportamiento de admisión en el cierre es idéntico al de la convocatoria o
 ## Ejercicios
 1. Descargar el proyecto de la práctica que se encuentra en la carpeta formandera-convocatorias.
 2. Elaborar un documento md que contenga una tabla con el diseño de los casos de prueba de métodos para la clase Convocatoria. Los casos de prueba diseñados deben aseguren la cobertura del código de cada método, atendiendo a su especificación. Dicha tabla debe contener, como mínimo, los siguientes datos:
-    a. Método sobre el que se realiza la prueba.
-    b. Nombre significativo del test propuesto.
-    c. Breve descripción del objetivo del test diseñado
-    d. Configuración del estado y parámetros de entrada asociados al test
-    e. Estado/valor esperado que se comprobará en el caso de prueba (diseño de asserts)
-3. Implementar los casos de prueba de métodos para la clase Convocatoria en la clase ConvocatoriaTest, dentro de la carpeta y paquete adecuado, diseñados en el paso anterior.
-4. Analizar el diagrama de estados de la clase Convocatoria y crea un nuevo documento md con: la expresión regular que determina las secuencias aleatorias asociadas a la clase y una tabla que contenga el diseño de las pruebas de clase aleatorias de manera que aseguren que se ejercitan todos los posibles estados de los objetos. La tabla debe contener la siguiente información:
-    a. Nombre significativo del test propuesto.
-    b. Secuencia aleatoria que se pretende probar
-    c. Configuración y parámetros de entrada al test
-    d. Estado/valor esperado después de la ejecución
-5. Añadir, idenitificando la sección con un comentario, la implementación de los casos de pruebas de clase aleatorias diseñados en el apartado anterior en la clase ConvocatoriaTest
-6. Elaborar un nuevo documento md donde se identifiquen los errores encontrados utilizando el conjunto de pruebas de los ejercicios 3 y 5. En este archivo se indicará el método o secuencia donde se produce el error, el test que lo identifica y las modificaciones realizadas sobre el código que corrijan el error descrito. Además, se añadirá la captura de pantala de la vista de jUnit donde se muestre el resultado final de la ejecución de todos os test. 
-7. Implementar las clases de prueba ConvocatoriaMínimaTest y ConvocatoriaLimitadaTest como descendientes de ConvocatoriaTest. Antes de realizar la implamentación de casos de prueba de cada una de ellas, ejecuta todos los test de ConvocatoriaTest en las clases hijas (las heredarán directamente) para ver qué nuevos casos debemos incorporar o modificar.
-8. Implementar los casos de prueba de cada una de las subclases (ConvocatoriaMínimaTest y ConvocatoriaLimitadaTest) siguiendo las recomendaciones vistas en clase.
-9. Elabora un nuevo documento md donde se identifiquen los test que se pueden reutiizar en cada una de las clases hijas, los que requieren modificación y los nuevos test que se han incorporado. Además, se estudiarán los errores encontrados en las calases hijas, indicando el test que determina el error y los cambios derivados. Además, se incoporará el estudio de la cobertura, de forma separada, de las clases hijas por loscasos de prueba diseñados en las clases ConvocatoriaLimitadaTest.java y ConvocatoriaMinimaTest.java.
+   - a. Método sobre el que se realiza la prueba.
+   - b. Nombre significativo del test propuesto.
+   - c. Breve descripción del objetivo del test diseñado
+   - d. Configuración del estado y parámetros de entrada asociados al test
+   - e. Estado/valor esperado que se comprobará en el caso de prueba (diseño de asserts)
+4. Implementar los casos de prueba de métodos para la clase Convocatoria en la clase ConvocatoriaTest, dentro de la carpeta y paquete adecuado, diseñados en el paso anterior.
+5. Analizar el diagrama de estados de la clase Convocatoria y crea un nuevo documento md con: la expresión regular que determina las secuencias aleatorias asociadas a la clase y una tabla que contenga el diseño de las pruebas de clase aleatorias de manera que aseguren que se ejercitan todos los posibles estados de los objetos. La tabla debe contener la siguiente información:
+   - a. Nombre significativo del test propuesto.
+   - b. Secuencia aleatoria que se pretende probar
+   - c. Configuración y parámetros de entrada al test
+   - d. Estado/valor esperado después de la ejecución
+7. Añadir, idenitificando la sección con un comentario, la implementación de los casos de pruebas de clase aleatorias diseñados en el apartado anterior en la clase ConvocatoriaTest
+8. Elaborar un nuevo documento md donde se identifiquen los errores encontrados utilizando el conjunto de pruebas de los ejercicios 3 y 5. En este archivo se indicará el método o secuencia donde se produce el error, el test que lo identifica y las modificaciones realizadas sobre el código que corrijan el error descrito. Además, se añadirá la captura de pantala de la vista de jUnit donde se muestre el resultado final de la ejecución de todos os test. 
+9. Implementar las clases de prueba ConvocatoriaMínimaTest y ConvocatoriaLimitadaTest como descendientes de ConvocatoriaTest. Antes de realizar la implamentación de casos de prueba de cada una de ellas, ejecuta todos los test de ConvocatoriaTest en las clases hijas (las heredarán directamente) para ver qué nuevos casos debemos incorporar o modificar.
+10. Implementar los casos de prueba de cada una de las subclases (ConvocatoriaMínimaTest y ConvocatoriaLimitadaTest) siguiendo las recomendaciones vistas en clase.
+11. Elabora un nuevo documento md donde se identifiquen los test que se pueden reutiizar en cada una de las clases hijas, los que requieren modificación y los nuevos test que se han incorporado. Además, se estudiarán los errores encontrados en las calases hijas, indicando el test que determina el error y los cambios derivados. Además, se incoporará el estudio de la cobertura, de forma separada, de las clases hijas por loscasos de prueba diseñados en las clases ConvocatoriaLimitadaTest.java y ConvocatoriaMinimaTest.java.
 ---
 ## Dinámica de trabajo
 
