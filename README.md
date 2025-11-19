@@ -233,6 +233,12 @@ El comportamiento de admisión en el cierre es idéntico al de la convocatoria o
 8. Implementar los casos de prueba de cada una de las subclases (ConvocatoriaMínimaTest y ConvocatoriaLimitadaTest) siguiendo las recomendaciones vistas en clase.
 9. Elabora un nuevo documento md donde se identifiquen los test que se pueden reutiizar en cada una de las clases hijas, los que requieren modificación y los nuevos test que se han incorporado. Además, se estudiarán los errores encontrados en las calases hijas, indicando el test que determina el error y los cambios derivados. Además, se incoporará el estudio de la cobertura, de forma separada, de las clases hijas por loscasos de prueba diseñados en las clases ConvocatoriaLimitadaTest.java y ConvocatoriaMinimaTest.java.
 ---
+## Dinámica de trabajo
+
+- Ambos miembros del grupo elaborarán la documentación y la implementación de los ejercicios 1, 2, 3, 4, 5 y 6 de forma conjunta en la rama ```main```. En los documentos asignados deben reflejarse un número de commits equilibrados entre ambos participantes.
+- Los ejercicios 7, 8 y 9 los realizará cada participante en su rama individual que se inicializará con una copia del estado final de la rama ```main``` a la conclusión del ejercicio 6.
+- Una vez finalizado el trabajo en las ramas indiciduales se reallizará un merge a la rama ```main``` de las ramas individuales para que todo quede integrado.
+---
 ## Evaluación
 - Se ofrece un archivo md con la tabla indicada en el ejercicio 2 y se enlaza en el README.md del repositorio - 0,25 puntos
 - Diseño y completitud de los casos de prueba de métodos insertados en la tabla indicada en el ejerccio 2 - 1,5 punto
